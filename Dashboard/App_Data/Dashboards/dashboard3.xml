@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard>
+  <Title Text="New Dashboard2" />
+  <DataSources>
+    <SqlDataSource ComponentName="DataSource1">
+      <Name>cad_usuario</Name>
+      <Connection Name="MysqlTeste" FromAppConfig="true" />
+      <Query Type="SelectQuery" Name="cad_usuario">
+        <Tables>
+          <Table Name="cad_usuario" />
+        </Tables>
+        <Columns>
+          <Column Table="cad_usuario" Name="Usuario" />
+        </Columns>
+      </Query>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <Pivot ComponentName="pivotDashboardItem1" Name="Pivot 1" DataSource="DataSource1" DataMember="cad_usuario">
+      <DataItems>
+        <Measure DataMember="Usuario" SummaryType="Count" DefaultId="DataItem0" />
+      </DataItems>
+      <Values>
+        <Value DefaultId="DataItem0" />
+      </Values>
+    </Pivot>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup Weight="100">
+      <LayoutItem DashboardItem="pivotDashboardItem1" Weight="100" />
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>
